@@ -1,0 +1,309 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.navbar-toggler {
+    outline: none !important;
+    padding: 0 !important;
+}
+.nav-link{
+color: #c300ff !important;
+font-weight: 600;
+margin-left: 30px;
+}
+
+.navbar-toggler img {
+    width: 35px;
+}
+.wrapper{
+    margin: 50px auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    box-shadow: 0 0 40px 2px rgba(37, 73, 214, 0.18);
+}
+.feature-box{
+    padding: 30px;
+}
+.feature-box h1{
+
+    color: blueviolet;
+}
+.feature-box p{
+    margin:50px auto;
+    color: black;
+}
+.feature-box a{
+    text-decoration: none !important;
+    background: #a669ce;
+    border-radius:20px ;
+    padding: 10px 20px;
+    margin-right: 30px;
+    border: 2px solid #a669ce !important;
+    color: white;
+}
+
+.hints{
+    font-size: 25px;
+}
+.gameboard{
+    padding: 20px 40px;
+    text-align: center;
+   
+}
+
+.btn-One:hover{
+    background:black !important;
+    color:#fff !important;
+
+}
+.btn-Two:hover{
+    background:black !important;
+    color:#fff !important;
+  
+}
+
+.feature-img{
+    
+     width:100%;
+     padding: 40px;
+}
+
+@media only screen and (max-width:990px)
+{
+    .feature-box a
+    {
+        padding: 5px 8px;
+        margin-right: 10px;
+    }
+
+}
+
+
+
+section{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.section-header{
+    position: relative;
+    text-align: center;
+    font-weight: 900;
+    padding-bottom: 25px;
+    color: #fff;
+}
+.section-header::after{
+    content: "";
+    height: 3px;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 100px);
+}
+
+.section-header span{
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+}
+.testimonials{
+    max-width: 1000px;
+    padding: 0 15px 50px;
+    margin: 0 auto 80px auto;
+}
+.single-item{
+    background: #fff;
+    color: #111;
+    padding: 15px;
+    margin: 50px 15px ;
+}
+body{
+    background-color: blueviolet;
+    font-family: montserrat;
+}
+.profile{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.img-area{
+    margin: 0 15px 15px 15px;
+}
+.img-area img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 7px solid blueviolet;
+}
+
+.content p span{
+    font-size: 48px;
+    margin-right: 20px;
+    color: blueviolet;
+}
+.socials i {
+    margin-right: 25px;
+}
+.bio h4{
+    font-family: berkshire swash;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon{
+background-color: blueviolet !important;
+}
+/* Tic tac toe game */
+*, *::after, *::before{
+    box-sizing: border-box;
+    }
+    
+    :root {
+        --cell-size: 100px;
+        --mark-size: calc(var(--cell-size) * .9)  
+    }
+    
+    body{
+        margin:0;
+    }
+    
+    .board{
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(3, auto);
+    
+    }
+    
+    .cell{
+        width: var(--cell-size);
+        height: var(--cell-size);
+        border: 2px solid rgb(0, 216, 244);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .cell:first-child,
+    .cell:nth-child(2),
+    .cell:nth-child(3) {
+        border-top:none;
+    }
+    
+    .cell:nth-child(3n + 1){
+        border-left:none;
+    }
+    .cell:nth-child(3n + 3){
+        border-right:none;
+    }
+    .cell:last-child,
+    .cell:nth-child(8),
+    .cell:nth-child(7) {
+        border-bottom:none;
+    }
+    
+    .cell.x,
+    .cell.circle{
+        cursor: not-allowed;
+    }
+    
+    .cell.x::before,
+    .cell.x::after,
+    .cell.cell.circle::before{
+        background-color: black;
+    }
+    
+    
+    
+    .board.x .cell:not(.x):not(.circle):hover::before,
+    .board.x .cell:not(.x):not(.circle):hover::after,
+    .board.circle .cell:not(.x):not(.circle):hover::before
+    {
+        background-color: lightgray;
+    }
+    
+    
+    /* not() makes it so it does not make an X appear on the O when choosing */
+    .cell.x::before,
+    .cell.x::after,
+    .board.x .cell:not(.circle):not(.x):hover:before,
+    .board.x .cell:not(.circle):not(.x):hover::after{
+        content: '';
+        position: absolute;
+        width: calc(var(--mark-size) * .15);
+        height: var(--mark-size);
+    }
+    .cell.x::before, 
+    .board.x .cell:not(.circle):not(.x):hover::before{
+        transform: rotate(45deg) ;
+    }
+     
+    .cell.x::after, 
+    .board.x .cell:not(.circle):not(.x):hover::after{
+        transform: rotate(-45deg);
+    }
+    
+    .cell.circle::before,
+    .cell.circle::after,
+    .board.circle .cell:not(.x):not(.circle):hover::before,
+    .board.circle .cell:not(.x):not(.circle):hover::after{
+        content: '';
+        position: absolute;
+       border-radius: 50%;
+     
+    }
+    
+    .cell.circle::before,
+    .board.circle .cell:not(.x):not(.circle):hover::before{
+        width: var(--mark-size);
+        height: var(--mark-size);
+    }
+    
+    .cell.circle::after,
+    .board.circle .cell:not(.x):not(.circle):hover::after{
+        width: calc(var(--mark-size)* .7);
+        height: calc(var(--mark-size)* .7);
+        background-color: #fff;
+    }
+    h1{
+        text-align: center;
+    }
+    .winning-message{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .9);
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 5rem;
+        flex-direction: column;
+    }
+    .winning-message.show{
+        display: flex;
+    }
+    
+    
+    .winning-message button{
+        font-size:  3rem;
+        background-color: #fff;
+        border: 1px solid black;
+        pad: 1em;
+        cursor: pointer;
+    }
+    
+    .winning-message button:hover{
+        background-color: black;
+        color:  white;
+        border: white;
+    }
+    
+    
